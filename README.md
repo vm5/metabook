@@ -47,6 +47,17 @@ A full-stack **Facebook clone** built using the **MERN stack** with essential fe
 | **Axios** | HTTP requests from React |
 | **Cloudinary / Multer** | Image upload and storage (optional) |
 
+## 🖼️ A few screenshots
+
+### 🔐 Login Page
+![Login](./screenshots/loginpage.png)
+
+### 👤 Profile Page
+![Profile](./screenshots/profilepage.png)
+
+### 📰 Feed Page
+![Feed](./screenshots/feed1.png)
+![Feed](./screenshots/feed2.png)
 
 
 
