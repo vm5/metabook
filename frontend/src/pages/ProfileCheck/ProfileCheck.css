@@ -1,0 +1,337 @@
+.profile-check-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #1a1a1a;
+  padding: 20px;
+}
+
+.profile-check-content {
+  background-color: #2a2a2a;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+}
+
+.profile-check-content h1 {
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  font-size: 1.8rem;
+}
+
+.verification-info {
+  color: #b3b3b3;
+  margin-bottom: 1.5rem;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+/* Name format example styles */
+.name-format-example {
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.name-format-example p {
+  color: #b3b3b3;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.name-format-example p:first-child {
+  color: #00c6ff;
+  font-weight: bold;
+  margin-bottom: 0.8rem;
+}
+
+.name-format-example .correct {
+  color: #4caf50;
+}
+
+.name-format-example .incorrect {
+  color: #ff4444;
+}
+
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #444;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 1rem;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: #00c6ff;
+  box-shadow: 0 0 0 2px rgba(0, 198, 255, 0.2);
+}
+
+.error-message {
+  color: #ff4444;
+  margin: 1rem 0;
+  padding: 0.8rem;
+  background-color: rgba(255, 68, 68, 0.1);
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+button {
+  width: 100%;
+  padding: 0.8rem;
+  background-color: #00c6ff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #00b3e6;
+}
+
+button:disabled {
+  background-color: #666;
+  cursor: not-allowed;
+}
+
+.success-message {
+  background-color: #2d1b36;
+  border: 1px solid #8e44ad;
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  color: #fff;
+}
+
+.success-message h2 {
+  color: #8e44ad;
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.success-message p {
+  color: #e1bee7;
+  font-size: 1rem;
+}
+
+/* Responsive styles */
+@media (max-width: 480px) {
+  .profile-check-content {
+    padding: 1.5rem;
+  }
+
+  .profile-check-content h1 {
+    font-size: 1.5rem;
+  }
+
+  .input-group input {
+    font-size: 0.9rem;
+  }
+
+  .name-format-example {
+    font-size: 0.8rem;
+    padding: 0.8rem;
+  }
+}
+
+.profile-check-card {
+  background: rgba(30, 30, 30, 0.95);
+  padding: 40px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3),
+              0 0 0 1px rgba(255, 255, 255, 0.1);
+  width: 100%;
+  max-width: 500px;
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+  text-align: center;
+  color: #fff;
+  margin-bottom: 30px;
+  font-size: 2em;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.profile-result {
+  margin-top: 30px;
+  padding: 25px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.profile-result h3 {
+  color: #9f7aea;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 1.5em;
+  letter-spacing: 1px;
+}
+
+.profile-details p {
+  margin: 15px 0;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.profile-details strong {
+  color: #9f7aea;
+  width: 120px;
+  display: inline-block;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.success-animation {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.checkmark {
+  color: #9f7aea;
+  font-size: 48px;
+  text-shadow: 0 0 10px rgba(159, 122, 234, 0.5);
+}
+
+.redirect-message {
+  text-align: center;
+  color: rgba(255, 255, 255, 0.6);
+  margin-top: 20px;
+  font-style: italic;
+}
+
+/* Glowing effect for verified status */
+.profile-result.verified {
+  animation: glow 2s infinite alternate;
+}
+
+@keyframes glow {
+  from {
+    box-shadow: 0 0 5px rgba(159, 122, 234, 0.2),
+                0 0 10px rgba(159, 122, 234, 0.2),
+                0 0 15px rgba(159, 122, 234, 0.2);
+  }
+  to {
+    box-shadow: 0 0 10px rgba(159, 122, 234, 0.3),
+                0 0 20px rgba(159, 122, 234, 0.3),
+                0 0 30px rgba(159, 122, 234, 0.3);
+  }
+}
+
+/* Shimmer effect for loading states */
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.1),
+    transparent
+  );
+  animation: shimmer 1.5s infinite;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from { transform: translateY(20px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.profile-details p {
+  animation: slideUp 0.3s ease forwards;
+  animation-delay: calc(var(--index) * 0.1s);
+}
+
+.success-icon {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(45deg, #ff6b6b, #ff8e53);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 30px;
+  font-size: 40px;
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.4);
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Add smooth transitions for all interactive elements */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Add a subtle hover effect to the card */
+.profile-check-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Add placeholder styling */
+::placeholder {
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.loader {
+  color: #fff;
+  font-size: 1.2rem;
+  padding: 20px;
+  background: #111;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255,255,255,0.1);
+}
+
+@keyframes successPulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.02); }
+  100% { transform: scale(1); }
+} 

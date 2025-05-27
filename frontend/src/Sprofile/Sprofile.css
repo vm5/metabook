@@ -1,0 +1,70 @@
+.profile-setup-container {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 20px;
+    background: var(--dark-card);
+    border-radius: 12px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .profile-setup-container h1 {
+    color: var(--dark-text);
+    margin-bottom: 10px;
+    font-size: 24px;
+  }
+  
+  .profile-setup-container p {
+    color: var(--dark-text-secondary);
+    margin-bottom: 30px;
+  }
+  
+  .profile-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .form-group label {
+    color: var(--dark-text);
+    font-weight: 500;
+  }
+  
+  .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 12px;
+    border: 1px solid var(--dark-border);
+    border-radius: 8px;
+    background: var(--dark-bg);
+    color: var(--dark-text);
+    font-size: 14px;
+  }
+  
+  .form-group textarea {
+    min-height: 100px;
+    resize: vertical;
+  }
+  
+  .create-profile-btn {
+    padding: 12px 24px;
+    background: linear-gradient(45deg, var(--accent-purple), #7c3aed);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    margin-top: 20px;
+  }
+  
+  .create-profile-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(124, 58, 237, 0.3);
+  }

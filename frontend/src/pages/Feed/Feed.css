@@ -1,0 +1,1833 @@
+/* Feed.css */
+:root {
+  --dark-bg: #121212;
+  --darker-bg: #1a1a1a;
+  --card-bg: #242424;
+  --text-primary: #ffffff;
+  --text-secondary: #b0b0b0;
+  --accent: #7000FF;
+  --accent-hover: #8033FF;
+  --border: #333333;
+  --shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  --font-family: monospace;
+}
+
+/* Add at the top of the file, after the root variables */
+@media screen and (min-width: 0\0) {
+  /* This targets only when dev tools are open */
+  img[src*="http"]:not([src*="localhost"]),
+  [href*="http"]:not([href*="localhost"]) {
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    -webkit-text-fill-color: transparent;
+  }
+
+  img[src*="http"]:not([src*="localhost"])::before,
+  [href*="http"]:not([href*="localhost"])::before {
+    content: "***";
+    color: transparent;
+  }
+
+  /* Hide source URLs in inspector */
+  [src*="http"]:not([src*="localhost"]),
+  [href*="http"]:not([href*="localhost"]) {
+    font-size: 0;
+    -webkit-mask-image: -webkit-linear-gradient(transparent, #000);
+    mask-image: linear-gradient(transparent, #000);
+  }
+}
+
+/* Remove the previous URL protection CSS */
+[src*="http"]:not([src*="localhost"]),
+[href*="http"]:not([href*="localhost"]) {
+  pointer-events: auto;
+  -webkit-touch-callout: auto;
+  -webkit-user-select: auto;
+  -khtml-user-select: auto;
+  -moz-user-select: auto;
+  -ms-user-select: auto;
+  user-select: auto;
+  position: static;
+}
+
+[src*="http"]:not([src*="localhost"])::before,
+[href*="http"]:not([href*="localhost"])::before {
+  content: none;
+}
+
+/* Base Styles */
+* {
+  font-family: monospace !important;
+}
+
+body {
+  background-color: var(--dark-bg);
+  color: var(--text-primary);
+  margin: 0;
+  font-family: monospace !important;
+}
+
+.fb-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--dark-bg);
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Header */
+.fb-header {
+  position: sticky;
+  top: 0;
+  height: 70px;
+  background-color: var(--darker-bg);
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 100;
+  box-shadow: var(--shadow);
+}
+
+.fb-header-left {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+}
+
+.fb-brand {
+  color: var(--accent);
+  font-size: 1.8rem;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-family: monospace !important;
+}
+
+/* Search Bar */
+.fb-search {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 40px;
+  background-color: var(--card-bg);
+  padding: 0 1rem;
+  border-radius: 8px;
+}
+
+.search-icon {
+  color: var(--text-secondary);
+  margin-right: 8px;
+}
+
+.fb-search input {
+  width: 100%;
+  height: 100%;
+  background: none;
+  border: none;
+  color: var(--text-primary);
+  outline: none;
+  font-size: 14px;
+  font-family: monospace !important;
+}
+
+/* Header Icons and User Welcome */
+.fb-header-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.fb-icon-button {
+  width: 40px;
+  height: 40px;
+  background-color: var(--card-bg);
+  color: var(--text-primary);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.fb-icon-button:hover {
+  background-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.user-welcome {
+  background: var(--card-bg);
+  padding: 8px 16px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  color: var(--text-primary);
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.user-welcome:hover {
+  border-color: var(--accent);
+  transform: translateY(-2px);
+}
+
+/* Left Sidebar - Communities */
+.coming-soon-label {
+  background: var(--accent);
+  color: white;
+  font-size: 10px;
+  padding: 4px 8px;
+  border-radius: 10px;
+  margin-left: 8px;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { opacity: 0.6; }
+  50% { opacity: 1; }
+  100% { opacity: 0.6; }
+}
+
+/* Feed Tabs */
+.feed-tabs {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 25px;
+  padding: 10px;
+  background: var(--card-bg);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+}
+
+.tab-button {
+  flex: 1;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  background: transparent;
+  color: var(--text-secondary);
+  font-size: 14px;
+  font-family: monospace !important;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.tab-button:hover {
+  color: var(--text-primary);
+  background: rgba(112, 0, 255, 0.1);
+}
+
+.tab-button.active {
+  background: var(--accent);
+  color: white;
+  font-weight: 500;
+}
+
+/* Main Layout */
+.fb-main {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 300px minmax(500px, 700px) 300px;
+  gap: 2rem;
+  width: 100%;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+/* Left Sidebar */
+.fb-sidebar-left {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 90px);
+  width: 100%;
+  padding-right: 1rem;
+  overflow-y: auto;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  color: var(--text-secondary);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.menu-item:hover {
+  background: rgba(112, 0, 255, 0.1);
+  color: var(--accent);
+}
+
+.menu-item.active {
+  background: var(--accent);
+  color: white;
+}
+
+.menu-item .coming-soon-label {
+  position: absolute;
+  right: 1rem;
+  font-size: 0.7rem;
+  padding: 2px 6px;
+  background: var(--accent);
+  border-radius: 10px;
+  animation: none;
+}
+
+.menu-item.profile-item {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  padding: 1.5rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.menu-item.profile-item:hover {
+  background: rgba(112, 0, 255, 0.1);
+}
+
+.sidebar-profile-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
+}
+
+.sidebar-profile-icon {
+  color: var(--text-secondary);
+  transition: color 0.3s ease;
+}
+
+.sidebar-profile-icon:hover {
+  color: var(--accent);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.profile-name {
+  color: var(--text-primary);
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.profile-welcome {
+  color: var(--text-secondary);
+  font-size: 0.85rem;
+}
+
+/* Feed Content */
+.fb-feed {
+  background: var(--darker-bg);
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.post-card {
+  background: var(--card-bg);
+  border-radius: 15px;
+  margin-bottom: 20px;
+  padding: 1.5rem;
+  border: 1px solid var(--border);
+  transition: transform 0.3s ease;
+}
+
+.post-card:hover {
+  transform: translateY(-2px);
+}
+
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.post-profile-icon {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #666;
+  margin-right: 10px;
+  border-radius: 50%;
+  background-color: #1a1a1a;
+  transition: color 0.2s ease;
+}
+
+.post-profile-icon:hover {
+  color: var(--accent);
+}
+
+.post-profile-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 10px;
+  border: 2px solid var(--accent);
+}
+
+/* Right Sidebar - Ads */
+.fb-sidebar-right {
+  position: sticky;
+  top: 90px;
+  height: calc(100vh - 90px);
+  width: 100%;
+  padding-left: 1rem;
+}
+
+.ad-container {
+  background: var(--darker-bg);
+  border-radius: 15px;
+  border: 1px solid var(--border);
+  overflow: hidden;
+  margin-bottom: 1rem;
+  height: calc(100vh - 120px);
+  display: flex;
+  flex-direction: column;
+  max-height: 100%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ad-header {
+  padding: 20px;
+  background: var(--darker-bg);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.ad-header h3 {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0;
+}
+
+.ad-sponsored {
+  background: rgba(112, 0, 255, 0.15);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  letter-spacing: 0.5px;
+  border: 1px solid rgba(112, 0, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.ad-carousel {
+  flex: 1;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  overflow-y: auto;
+}
+
+.ad-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.3s ease;
+  position: relative;
+  opacity: 1 !important;
+  transform: none !important;
+  display: block !important;
+}
+
+/* Remove all animation related styles */
+.ad-item:nth-child(1),
+.ad-item:nth-child(2),
+.ad-item:nth-child(3) {
+  animation: none !important;
+}
+
+@media (max-width: 768px) {
+  .mobile-ads-section .ad-item {
+    opacity: 1;
+    transform: none;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .mobile-ads-section .ad-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Remove all mobile animations */
+  .mobile-ads-section .ad-item:nth-child(1),
+  .mobile-ads-section .ad-item:nth-child(2),
+  .mobile-ads-section .ad-item:nth-child(3) {
+    animation: none !important;
+  }
+
+  /* Remove all keyframes */
+  @keyframes mobileAdFade1 { }
+  @keyframes mobileAdFade2 { }
+  @keyframes mobileAdFade3 { }
+}
+
+/* Ensure all ads are visible */
+.ad-item:not(:first-child) {
+  display: block !important;
+}
+
+.ad-item-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.ad-image {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 12px 12px 0 0;
+}
+
+.ad-item-title {
+  color: var(--text-primary);
+  font-size: 18px;
+  font-weight: 600;
+  margin: 15px 20px 10px;
+}
+
+.ad-item-description {
+  color: var(--text-secondary);
+  font-size: 14px;
+  line-height: 1.6;
+  margin: 0 20px 15px;
+}
+
+.ad-item-cta {
+  background: var(--accent);
+  color: white;
+  text-decoration: none;
+  padding: 12px 24px;
+  border-radius: 25px;
+  margin: 0 20px 20px;
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  display: inline-block;
+}
+
+.ad-item-cta:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+}
+
+/* Footer Improvements */
+.fb-footer {
+  margin-top: auto;
+  padding: 3rem 1.5rem 1.5rem;
+  background: var(--darker-bg);
+  border-top: 1px solid var(--border);
+  position: relative;
+}
+
+.footer-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  padding-bottom: 2rem;
+}
+
+.footer-section {
+  color: var(--text-primary);
+}
+
+.footer-logo {
+  color: var(--accent);
+  font-size: 2.5rem;
+  font-weight: bold;
+  letter-spacing: 2px;
+  margin-bottom: 1rem;
+  text-shadow: 0 0 10px rgba(112, 0, 255, 0.3);
+  font-family: monospace !important;
+}
+
+.footer-section h4 {
+  color: var(--accent);
+  font-size: 1.2rem;
+  margin-bottom: 1.5rem;
+  letter-spacing: 1px;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-section h4::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+}
+
+.footer-section p {
+  color: var(--text-secondary);
+  line-height: 1.8;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+.social-links {
+  display: flex;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.social-link-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  transition: all 0.3s ease;
+}
+
+.social-link-item:hover {
+  color: var(--accent);
+  transform: translateY(-2px);
+}
+
+.social-link-item .coming-soon-label {
+  position: absolute;
+  top: -8px;
+  right: -20px;
+  font-size: 8px;
+  padding: 2px 6px;
+  background: var(--accent);
+  border-radius: 10px;
+  white-space: nowrap;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid var(--border);
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  position: relative;
+}
+
+.footer-bottom::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50px;
+  height: 1px;
+  background: var(--accent);
+}
+
+/* Responsive Design - Updated */
+@media (max-width: 1400px) {
+  .fb-main {
+    grid-template-columns: 250px minmax(400px, 600px) 250px;
+    gap: 1rem;
+    padding: 0.5rem;
+  }
+}
+
+@media (max-width: 1200px) {
+  .fb-main {
+    grid-template-columns: 200px minmax(400px, 600px) 200px;
+    gap: 0.8rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .fb-main {
+    grid-template-columns: 70px minmax(350px, 500px) 200px;
+    gap: 0.5rem;
+  }
+
+  .menu-item span,
+  .menu-item .coming-soon-label {
+    display: none;
+  }
+
+  .menu-item {
+  justify-content: center;
+    padding: 0.8rem;
+  }
+
+  .fb-brand {
+    font-size: 1.4rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .fb-container {
+    padding-bottom: 60px;
+  }
+
+  .fb-header {
+    padding: 10px;
+    height: auto;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .fb-header-left {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 8px;
+  }
+
+  .fb-header-right {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .user-welcome {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 8px 12px;
+    background: var(--card-bg);
+    border-radius: 12px;
+    font-size: 0.9rem;
+  }
+
+  .user-welcome img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--accent);
+  }
+
+  .user-welcome span {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .fb-icon-button {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .fb-search {
+    max-width: 200px;
+    height: 38px;
+  }
+
+  /* Ensure brand name is visible */
+  .fb-brand {
+    font-size: 1.2rem;
+    white-space: nowrap;
+  }
+
+  /* Hide desktop sidebar since we have mobile nav */
+  .fb-sidebar-left {
+    display: none;
+  }
+
+  .fb-brand {
+  font-size: 1.2rem;
+}
+
+  .fb-search {
+    width: 150px;
+    height: 35px;
+    padding: 0 0.5rem;
+  }
+
+  .fb-search input {
+    font-size: 0.9rem;
+  }
+
+  /* Main Feed Layout */
+  .fb-main {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    gap: 1rem;
+    margin-bottom: 0;
+  }
+
+  /* Feed Content */
+  .fb-feed {
+    width: 100%;
+    max-width: 100%;
+    padding: 0.5rem;
+    margin: 0;
+    border-radius: 8px;
+    background: transparent;
+  }
+
+  .feed-tabs {
+    position: sticky;
+    top: 60px;
+    z-index: 99;
+    background: var(--darker-bg);
+    margin: 0 -0.5rem 1rem -0.5rem;
+    padding: 0.75rem;
+    border-radius: 0;
+  }
+
+  .tab-button {
+    padding: 0.75rem;
+  font-size: 0.9rem;
+}
+
+  /* Posts */
+  .post-card {
+    margin-bottom: 1rem;
+    padding: 1rem;
+    border-radius: 8px;
+  }
+
+  .post-header {
+    padding: 0;
+    margin-bottom: 0.75rem;
+  }
+
+  .post-content {
+    padding: 0;
+  }
+
+  .post-title {
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .post-description {
+    font-size: 0.9rem;
+    line-height: 1.4;
+  }
+
+  /* Mobile Navigation */
+  .mobile-nav {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--darker-bg);
+    height: 60px;
+    z-index: 1000;
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 0 10px;
+  }
+
+  .mobile-nav-item {
+    flex: 1;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    color: var(--text-secondary);
+    font-size: 10px;
+    padding: 8px 2px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-nav-item.active {
+    color: var(--accent);
+  }
+
+  .mobile-nav-item svg {
+    font-size: 18px;
+    margin-bottom: 2px;
+  }
+
+  .mobile-nav-item .coming-soon-label {
+    position: absolute;
+    top: 2px;
+    right: 50%;
+    transform: translateX(50%);
+    font-size: 7px;
+    padding: 1px 4px;
+    white-space: nowrap;
+  }
+
+  /* Hide desktop sidebar */
+  .fb-sidebar-left {
+    display: none;
+  }
+
+  /* Adjust main content spacing */
+  .fb-main {
+    margin-bottom: calc(60px + 1rem);
+  }
+
+  /* Ads Section for Mobile */
+  .fb-sidebar-right {
+    display: block;
+    position: static;
+    padding: 0;
+    margin: 2rem 0;
+    height: auto;
+    width: 100%;
+  }
+
+  .ad-container {
+    height: auto;
+    max-height: none;
+    border-radius: 12px;
+    margin: 0;
+    padding: 1.5rem;
+    background: var(--darker-bg);
+    border: 1px solid var(--border);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  .ad-header {
+    margin-bottom: 1.5rem;
+    padding: 0;
+  border: none;
+  }
+
+  .ad-header h3 {
+    font-size: 1.4rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .ad-header h3::before {
+    font-size: 1.2rem;
+  }
+
+  .ad-carousel {
+    height: auto;
+    padding: 0;
+  display: flex;
+  flex-direction: column;
+    gap: 1rem;
+  }
+
+  .ad-item {
+    position: relative;
+    width: 100%;
+    margin-bottom: 1rem;
+    transform: none !important;
+    animation: none !important;
+    opacity: 1;
+    border: 1px solid var(--border);
+  border-radius: 12px;
+    overflow: hidden;
+    background: var(--card-bg);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .ad-item:hover {
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 16px rgba(112, 0, 255, 0.15);
+  }
+
+  .ad-item-content {
+    padding: 1.5rem;
+  }
+
+  .ad-item-title {
+    font-size: 1.2rem;
+  margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .ad-item-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 1.2rem;
+    color: var(--text-secondary);
+  }
+
+  .ad-item-cta {
+    padding: 0.8rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 25px;
+    background: var(--accent);
+    color: white;
+  text-align: center;
+    display: block;
+    transition: all 0.3s ease;
+  }
+
+  .ad-item-cta:hover {
+    background: var(--accent-hover);
+    transform: translateY(-1px);
+  }
+
+  /* Show all ads in mobile view */
+  .ad-item:not(:first-child) {
+    display: block;
+  }
+
+  /* Mobile Footer */
+  .fb-footer {
+    padding: 2rem 1rem 5rem;
+    margin-top: 0;
+  }
+
+  .footer-content {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    text-align: center;
+  }
+
+  .footer-section h4::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .social-links {
+    justify-content: center;
+  }
+
+  .footer-logo {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .fb-header {
+    padding: 0.5rem;
+  }
+
+  .fb-brand {
+    font-size: 1rem;
+  }
+
+  .post-card {
+    padding: 0.75rem;
+  }
+
+  .post-profile-img,
+  .post-profile-icon {
+    width: 35px;
+    height: 35px;
+  }
+
+  .user-details h4 {
+    font-size: 0.85rem;
+  }
+
+  .post-time {
+    font-size: 0.75rem;
+  }
+
+  .post-content {
+    font-size: 0.85rem;
+  }
+
+  .action-btn {
+    font-size: 0.75rem;
+    padding: 0.5rem;
+  }
+
+  .comment-form {
+    padding: 0.5rem;
+  }
+
+  .comment-form input {
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    height: 35px;
+  }
+
+  .comment-form button {
+    padding: 0 0.75rem;
+    font-size: 0.85rem;
+    height: 35px;
+  }
+
+  .mobile-nav-item {
+    font-size: 10px;
+  }
+
+  .mobile-nav-item svg {
+    font-size: 18px;
+  }
+
+  .user-welcome {
+    font-size: 0.8rem;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+  }
+
+  .footer-section h4 {
+    font-size: 1.1rem;
+  }
+
+  .footer-section p {
+    font-size: 0.85rem;
+  }
+
+  .social-link-item {
+    font-size: 1.5rem;
+  }
+
+  .fb-footer {
+    padding: 1.5rem 1rem 4.5rem;
+  }
+
+  .footer-logo {
+    font-size: 1.8rem;
+  }
+
+  .footer-section h4 {
+  font-size: 1.1rem;
+}
+
+  .footer-section p {
+    font-size: 0.85rem;
+  }
+
+  .social-link-item {
+    font-size: 1.5rem;
+  }
+
+  .social-link-item .coming-soon-label {
+    font-size: 7px;
+    padding: 2px 4px;
+    top: -8px;
+    right: -20px;
+  }
+
+  .fb-sidebar-right {
+    margin: 1.5rem 0;
+  }
+
+  .ad-container {
+  padding: 1rem;
+}
+
+  .ad-header h3 {
+  font-size: 1.2rem;
+}
+
+  .ad-item-content {
+    padding: 1rem;
+  }
+
+  .ad-item-title {
+    font-size: 1.1rem;
+  }
+
+  .ad-item-description {
+    font-size: 0.9rem;
+  }
+
+  .ad-item-cta {
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
+  }
+
+  .mobile-ads-section {
+    margin: 1.5rem 0;
+    padding: 0 0.5rem;
+  }
+
+  .mobile-ads-section .ad-container {
+    padding: 1rem;
+  }
+}
+
+/* Add styles for user menu dropdown on mobile */
+.mobile-user-menu {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .mobile-user-menu {
+  display: flex;
+  align-items: center;
+  }
+
+  .mobile-user-menu .user-avatar {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+
+  .mobile-menu-dropdown {
+    position: fixed;
+    bottom: 60px;
+    left: 0;
+    right: 0;
+    background: var(--darker-bg);
+    border-top: 1px solid var(--border);
+    padding: 0.5rem;
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.2);
+    z-index: 999;
+    max-height: 70vh;
+    overflow-y: auto;
+    animation: slideUp 0.3s ease;
+  }
+
+  @keyframes slideUp {
+    from {
+      transform: translateY(100%);
+      opacity: 0;
+    }
+    to {
+      transform: translateY(0);
+      opacity: 1;
+    }
+  }
+
+  .mobile-menu-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 1rem;
+    color: var(--text-primary);
+    font-size: 0.95rem;
+    border-radius: 8px;
+    position: relative;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-item:active {
+    background: rgba(112, 0, 255, 0.2);
+  }
+
+  .mobile-menu-item svg {
+    font-size: 1.2rem;
+    color: var(--text-secondary);
+  }
+
+  .mobile-menu-item:hover svg {
+    color: var(--accent);
+  }
+
+  .mobile-menu-item .coming-soon-label {
+    position: absolute;
+    right: 1rem;
+    font-size: 0.7rem;
+    padding: 2px 6px;
+    background: var(--accent);
+    border-radius: 10px;
+    animation: none;
+  }
+
+  /* Overlay when menu is open */
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 60px;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 998;
+    animation: fadeIn 0.3s ease;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+}
+
+/* Settings Modal Improvements */
+.settings-modal {
+  background: linear-gradient(135deg, var(--darker-bg), var(--dark-bg));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  padding: 2rem;
+  width: 90%;
+  max-width: 600px;
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+  animation: modalFadeIn 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes modalFadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.settings-modal h2 {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.settings-modal h2::before {
+  content: '⚙️';
+  font-size: 1.5rem;
+}
+
+.settings-options {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.settings-option {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 15px;
+  padding: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.settings-option:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  border-color: var(--accent);
+}
+
+.settings-option h3 {
+  color: var(--text-primary);
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.settings-option p {
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.settings-option button {
+  width: auto;
+  padding: 0.8rem 1.5rem;
+  border-radius: 25px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.warning-btn {
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+}
+
+.warning-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(255, 152, 0, 0.3);
+}
+
+.danger-btn {
+  background: linear-gradient(135deg, #f44336, #d32f2f);
+  color: white;
+}
+
+.danger-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(244, 67, 54, 0.3);
+}
+
+.confirmation-dialog {
+  background: rgba(0, 0, 0, 0.95);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 1.5rem;
+  border: 1px solid var(--accent);
+  animation: dialogSlideUp 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes dialogSlideUp {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.confirmation-dialog h3 {
+  color: var(--text-primary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+}
+
+.confirmation-dialog p {
+  color: var(--text-secondary);
+  margin-bottom: 1.5rem;
+  line-height: 1.6;
+}
+
+.confirmation-buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.confirmation-buttons button {
+  flex: 1;
+  padding: 1rem;
+  border-radius: 12px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cancel-btn {
+  background: var(--card-bg);
+  color: var(--text-primary);
+  border: 1px solid var(--border);
+}
+
+.cancel-btn:hover {
+  background: var(--darker-bg);
+  transform: translateY(-2px);
+}
+
+.confirm-btn {
+  background: var(--accent);
+  color: white;
+}
+
+.confirm-btn:hover {
+  background: var(--accent-hover);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(112, 0, 255, 0.3);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 1.8rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.close-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(90deg);
+}
+
+/* Mobile Ads Section Improvements */
+@media (max-width: 768px) {
+  .mobile-ads-section .ad-item {
+    opacity: 1;
+    transform: none;
+    margin-bottom: 20px;
+    display: block;
+  }
+
+  .mobile-ads-section .ad-carousel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  /* Remove all mobile animations */
+  .mobile-ads-section .ad-item:nth-child(1),
+  .mobile-ads-section .ad-item:nth-child(2),
+  .mobile-ads-section .ad-item:nth-child(3) {
+    animation: none !important;
+  }
+
+  /* Remove all keyframes */
+  @keyframes mobileAdFade1 { }
+  @keyframes mobileAdFade2 { }
+  @keyframes mobileAdFade3 { }
+}
+
+/* Increase ads section width for PC */
+@media (min-width: 1400px) {
+  .fb-main {
+    grid-template-columns: 300px minmax(500px, 700px) 1fr;
+    gap: 2rem;
+  }
+
+  .fb-sidebar-right {
+    padding-right: 3rem;
+  }
+
+  .ad-container {
+    max-width: none;
+    width: 100%;
+  }
+}
+
+/* Mobile improvements */
+@media (max-width: 768px) {
+  .fb-header {
+    background: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .fb-brand {
+    font-size: 1.4rem;
+    text-shadow: 0 0 10px rgba(112, 0, 255, 0.3);
+  }
+
+  .user-welcome {
+    background: linear-gradient(135deg, var(--card-bg), var(--darker-bg));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  }
+
+  .post-card {
+    background: linear-gradient(135deg, var(--card-bg), var(--darker-bg));
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+    padding: 1.5rem;
+  }
+
+  .mobile-nav {
+    background: linear-gradient(to top, var(--darker-bg), var(--dark-bg));
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .mobile-nav-item {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+  }
+
+  .mobile-nav-item svg {
+    font-size: 20px;
+  }
+
+  .mobile-nav-item.active {
+    color: var(--accent);
+    text-shadow: 0 0 10px rgba(112, 0, 255, 0.3);
+  }
+
+  .mobile-menu-dropdown {
+    background: linear-gradient(to bottom, var(--darker-bg), var(--dark-bg));
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .mobile-menu-item {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.5px;
+    padding: 1.2rem;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-item:active {
+    background: rgba(112, 0, 255, 0.15);
+    transform: scale(0.98);
+  }
+}
+
+.comments-section {
+  margin-top: 1rem;
+  padding: 1rem;
+  background: #000000;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comment {
+  padding: 1rem;
+  background: #000000;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comment:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+}
+
+.comment-form {
+  margin-top: 1rem;
+  display: flex;
+  gap: 0.5rem;
+  background: #000000;
+  padding: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.comment-form input {
+  flex: 1;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #000000;
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.comment-form input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.comment-form button {
+  padding: 0.75rem 1.5rem;
+  border: none;
+  border-radius: 20px;
+  background-color: #000000;
+  color: #fff;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.2s ease;
+}
+
+.comment-form button:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+.comment-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+  background: #000000;
+}
+
+.comment-user-info {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.comment-avatar {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.comment-user-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.comment-user-details strong {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+.comment-time {
+  color: #666;
+  font-size: 0.8rem;
+  margin-top: 0.2rem;
+}
+
+.comment-content {
+  color: #fff;
+  margin-top: 0.5rem;
+  font-size: 0.95rem;
+  line-height: 1.4;
+}
+
+.delete-comment-btn {
+  background: transparent;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  padding: 0.25rem;
+  transition: color 0.2s ease;
+}
+
+.delete-comment-btn:hover {
+  color: #ff4757;
+}
+
+.comment-username-link {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.comment-username-link:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 480px) {
+  .comments-section {
+    padding: 0.5rem;
+  }
+
+  .comment {
+    padding: 0.75rem 0;
+  }
+
+  .comment-form {
+    padding: 0.75rem 0;
+  }
+
+  .comment-avatar {
+    width: 28px;
+    height: 28px;
+  }
+
+  .comment-user-details strong {
+    font-size: 0.85rem;
+  }
+
+  .comment-time {
+    font-size: 0.75rem;
+  }
+
+  .comment-content {
+    font-size: 0.9rem;
+  }
+}
+
+/* Add protection for images and links */
+img[src*="http"],
+img[src*="//"],
+a[href*="http"],
+a[href*="//"] {
+  pointer-events: none;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+img[src*="http"]::before,
+img[src*="//"]::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: inherit;
+  pointer-events: none;
+}
+
+/* Hide actual source in inspector */
+img[src*="http"],
+img[src*="//"] {
+  font-size: 0;
+  -webkit-mask-image: -webkit-linear-gradient(transparent, #000);
+  mask-image: linear-gradient(transparent, #000);
+}
+
+/* Protect external links */
+a[href*="http"],
+a[href*="//"] {
+  color: currentColor;
+  text-decoration: none;
+  cursor: pointer;
+  -webkit-text-fill-color: currentColor;
+}
+
+a[href*="http"]::after,
+a[href*="//"]::after {
+  content: attr(aria-label);
+  display: inline;
+}
+
+/* Additional protection for media elements */
+video source,
+audio source {
+  pointer-events: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  display: none;
+}
+

@@ -1,0 +1,118 @@
+.search-container {
+  position: relative;
+  width: 300px;
+  margin: 0 auto;
+  /* border: 1px solid purple; */
+  border-radius: 10px 10px 0 0;
+}
+
+.search-container:hover,.search-container:focus-within {
+  box-shadow: 0 4px 8px turquoise;
+}
+
+.search-input-container {
+  display: flex;
+  align-items: center;
+  padding: 5px;
+}
+
+
+.search-input {
+  width: 100%;
+  border: none;
+  outline: none;
+  font-size: 16px;
+}
+
+.search-input:focus {
+  border: none;
+  outline: none;
+  box-shadow: none;
+}
+
+.suggestions-list {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  /* border: 1px solid #cccccc3d; */
+  border-top: none;
+  border-radius: 0 0 10px 10px;
+  background-color: var(--darker-bg);
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  max-height: 400px;
+  overflow-y: auto;
+  z-index: 2000;
+  width: 100%; /* Make the suggestions list the same width as the input */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  transition: box-shadow 0.3s ease;
+  box-shadow: 0 4px 8px turquoise;
+
+}
+
+
+.suggestions-list li {
+  display: flex;
+  padding: 10px;
+  cursor: pointer;
+  align-items: center;
+  color: white;
+}
+
+.suggestions-list li:hover {
+  background-color: #080808;
+  box-shadow: 0 4px 8px turquoise;
+}
+
+.suggestions-list li span {
+  display: inline-block;
+  vertical-align: middle;
+  padding: 10px;
+}
+
+.profile-picture {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 10px;
+  object-fit: cover;
+}
+
+.loading {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  /* border: 1px solid #ccc; */
+  border-top: none;
+  background-color: var(--darker-bg);
+  padding: 10px;
+  text-align: center;
+  z-index: 1000;
+  width: 100%; /* Make the loading div the same width as the input */
+  box-sizing: border-box; /* Ensure padding is included in the width */
+  box-shadow: 0 4px 8px turquoise;
+}
+
+.no-results {
+  padding: 10px;
+  text-align: center;
+  color: white;
+}
+
+.view-all {
+  padding: 10px;
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--darker-bg);
+}
+
+.view-all:hover {
+  background-color: #e0e0e0;
+}
+
+.highlight {
+  background-color: yellow;
+}

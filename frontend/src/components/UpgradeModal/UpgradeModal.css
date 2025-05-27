@@ -1,0 +1,157 @@
+.upgrade-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 20px;
+}
+
+.upgrade-modal {
+  background: #000000;
+  border-radius: 20px;
+  padding: 2rem;
+  width: 100%;
+  max-width: 900px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: color 0.3s ease;
+}
+
+.close-btn:hover {
+  color: #131212;
+}
+
+.upgrade-modal h2 {
+  text-align: center;
+  color: #fff;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subtitle {
+  text-align: center;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.plans-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+}
+
+.plan-card {
+  background: #000000;
+  border-radius: 15px;
+  padding: 2rem;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.plan-card:hover {
+  border-color: var(--plan-color);
+  box-shadow: 0 0 30px rgba(var(--plan-color), 0.1);
+}
+
+.popular {
+  border-color: var(--plan-color);
+  transform: scale(1.02);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: var(--plan-color);
+  color: #000;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: bold;
+}
+
+.plan-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.plan-icon {
+  font-size: 2.5rem;
+  color: var(--plan-color);
+  margin-bottom: 1rem;
+}
+
+.plan-header h3 {
+  color: #fff;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  color: var(--plan-color);
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.features-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 2rem;
+}
+
+.features-list li {
+  color: #888;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.features-list li::before {
+  content: '✓';
+  color: var(--plan-color);
+}
+
+.select-plan-btn {
+  width: 100%;
+  background: transparent;
+  border: 2px solid var(--plan-color);
+  color: var(--plan-color);
+  padding: 1rem;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.select-plan-btn:hover {
+  background: var(--plan-color);
+  color: #000;
+}
+
+@media (max-width: 768px) {
+  .plans-container {
+    grid-template-columns: 1fr;
+  }
+} 

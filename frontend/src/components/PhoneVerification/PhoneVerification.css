@@ -1,0 +1,177 @@
+.phone-verification-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+}
+
+.phone-verification-card {
+  background-color: white;
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #666;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 14px;
+  padding: 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.back-button:hover {
+  background-color: #f5f5f5;
+  color: #333;
+}
+
+h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 20px;
+}
+
+.phone-input-container {
+  margin-bottom: 20px;
+}
+
+/* Override react-phone-input-2 styles */
+.react-tel-input .form-control {
+  width: 100% !important;
+  height: 50px !important;
+  font-size: 16px !important;
+  border: 1px solid #ddd !important;
+  border-radius: 8px !important;
+  padding-left: 60px !important;
+}
+
+.react-tel-input .flag-dropdown {
+  border: 1px solid #ddd !important;
+  border-radius: 8px 0 0 8px !important;
+  background-color: #f9f9f9 !important;
+}
+
+.verification-input {
+  width: 100%;
+  padding: 15px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  text-align: center;
+  letter-spacing: 2px;
+}
+
+.verify-button {
+  width: 100%;
+  padding: 15px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+}
+
+.verify-button:hover:not(:disabled) {
+  background-color: #0056b3;
+}
+
+.verify-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
+}
+
+.resend-button {
+  width: 100%;
+  padding: 12px;
+  background-color: transparent;
+  color: #007bff;
+  border: 1px solid #007bff;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s ease;
+}
+
+.resend-button:hover:not(:disabled) {
+  background-color: #f0f8ff;
+}
+
+.resend-button:disabled {
+  border-color: #ccc;
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.info-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 20px;
+  padding: 15px;
+  background-color: #f8f9fa;
+  border-radius: 8px;
+}
+
+.info-icon {
+  color: #6c757d;
+  font-size: 18px;
+}
+
+.info-text p {
+  margin: 0;
+  font-size: 14px;
+  color: #6c757d;
+}
+
+@media (max-width: 480px) {
+  .phone-verification-card {
+    padding: 20px;
+  }
+
+  .back-button {
+    top: 15px;
+    left: 15px;
+  }
+
+  h2 {
+    font-size: 20px;
+    margin-top: 30px;
+  }
+
+  .verification-input {
+    font-size: 14px;
+    padding: 12px;
+  }
+
+  .verify-button,
+  .resend-button {
+    padding: 12px;
+    font-size: 14px;
+  }
+} 

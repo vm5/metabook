@@ -1,0 +1,71 @@
+
+.user-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px;
+    background: #1a1a1a;
+    border-radius: 8px;
+    transition: transform 0.2s;
+}
+
+.user-card:hover {
+    transform: scale(1.02);
+    box-shadow: 0 4px 8px turquoise;
+
+}
+
+.user-image {
+    width: 100px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 50%;
+    /* border: 2px solid #6c00ff; */
+}
+
+.user-info {
+    color: #ddd;
+}
+
+h5 {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.text-muted {
+    font-size: 14px;
+    color: #888;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.pagination button {
+    background: turquoise;
+    color: white;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.pagination button:disabled {
+    background: #444;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    color: #ddd;
+    font-size: 16px;
+    font-weight: bold;
+    text-align: center;
+    min-width: 100px; /* Ensures proper spacing */
+}
+
+

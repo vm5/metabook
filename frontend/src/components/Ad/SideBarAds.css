@@ -1,0 +1,93 @@
+/* Right Sidebar - Ad Section Styles */
+
+  
+  .sidebar-ads-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .ads-header {
+    color: #888;
+    font-size: 16px;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #333;
+  }
+  
+  .ad-banner {
+    background-color: #252525;
+    border-radius: 8px;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.2s;
+  }
+  
+  .ad-banner:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  .ad-banner a {
+    text-decoration: none;
+    color: inherit;
+  }
+  
+  .ad-content {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .ad-image {
+    width: 100%;
+    height: auto;
+    max-height: 160px;
+    object-fit: contain;
+  }
+  
+  
+  
+  .ad-placeholder {
+    width: 100%;
+    height: 160px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(45deg, #3c1053, #ad5389);
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .ad-icon {
+    font-size: 48px;
+    color: rgba(255, 255, 255, 0.8);
+  }
+  
+  .ad-info {
+    padding: 15px;
+  }
+  
+  .ad-title {
+    margin: 0 0 5px 0;
+    font-size: 16px;
+    color: #fff;
+  }
+  
+  .ad-description {
+    margin: 0;
+    font-size: 14px;
+    color: #aaa;
+    line-height: 1.4;
+  }
+  
+  /* Responsive adjustments */
+  @media (max-width: 1200px) {
+    .fb-sidebar-right {
+      width: 250px;
+      min-width: 250px;
+    }
+  }
+  
+  @media (max-width: 768px) {
+    .fb-sidebar-right {
+      display: none; /* Hide on mobile */
+    }
+  }

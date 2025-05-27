@@ -1,0 +1,266 @@
+.twofa-container {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+.twofa-card {
+  background: rgba(18, 18, 18, 0.95);
+  border-radius: 16px;
+  padding: 40px;
+  width: 100%;
+  max-width: 600px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.back-button {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: none;
+  border: none;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: background-color 0.3s;
+}
+
+.back-button:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.auth-logo {
+  margin-bottom: 30px;
+}
+
+.twofa-card h2 {
+  color: #fff;
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.verification-steps {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.step {
+  background: rgba(26, 26, 26, 0.8);
+  border-radius: 12px;
+  padding: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.step:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.step-icon {
+  font-size: 24px;
+  color: #3a9eff;
+  margin-bottom: 15px;
+}
+
+.step h3 {
+  color: #fff;
+  margin-bottom: 10px;
+  font-size: 18px;
+}
+
+.step p {
+  color: #b3b3b3;
+  margin-bottom: 15px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.qr-container {
+  background: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  display: inline-block;
+  margin: 15px 0;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.qr-container img {
+  max-width: 200px;
+  height: auto;
+  display: block;
+}
+
+.verification-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+  margin-top: 15px;
+}
+
+.verification-form input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  font-size: 18px;
+  letter-spacing: 4px;
+  min-width: 200px;
+  width: 100%;
+  max-width: 300px;
+  text-align: center;
+  transition: border-color 0.3s;
+}
+
+.verification-form input:focus {
+  outline: none;
+  border-color: #3a9eff;
+  box-shadow: 0 0 0 2px rgba(58, 158, 255, 0.2);
+}
+
+.verification-form input::placeholder {
+  color: rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+}
+
+.verification-form button {
+  padding: 12px 24px;
+  min-width: 120px;
+  border-radius: 6px;
+  border: none;
+  background: #3a9eff;
+  color: #fff;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.verification-form button:hover:not(:disabled) {
+  background: #2d8ae5;
+  transform: translateY(-1px);
+}
+
+.verification-form button:disabled {
+  background: rgba(58, 158, 255, 0.3);
+  cursor: not-allowed;
+}
+
+.step.success {
+  background: rgba(0, 200, 83, 0.1);
+  border-color: rgba(0, 200, 83, 0.3);
+}
+
+.step.success .step-icon {
+  color: #00c853;
+}
+
+.info-box {
+  margin-top: 30px;
+  padding: 20px;
+  background: rgba(255, 77, 77, 0.1);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 77, 77, 0.3);
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+  width: 100%;
+}
+
+.info-icon {
+  color: #ff4d4d;
+  font-size: 20px;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.info-box p {
+  color: #ff4d4d;
+  font-size: 14px;
+  line-height: 1.5;
+  margin: 0;
+}
+
+.loading-state {
+  text-align: center;
+  padding: 40px;
+}
+
+.loading-spinner {
+  border: 3px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  border-top: 3px solid #3a9eff;
+  width: 40px;
+  height: 40px;
+  animation: spin 1s linear infinite;
+  margin: 0 auto 20px;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .twofa-card {
+    padding: 25px;
+  }
+
+  .back-button {
+    top: 15px;
+    left: 15px;
+    font-size: 14px;
+  }
+
+  .auth-logo {
+    width: 150px !important;
+  }
+
+  .step {
+    padding: 20px;
+  }
+
+  .qr-container img {
+    max-width: 160px;
+  }
+
+  .verification-form {
+    flex-direction: column;
+  }
+
+  .verification-form button {
+    width: 100%;
+  }
+
+  .info-box {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .info-icon {
+    margin: 0 auto 10px;
+  }
+} 

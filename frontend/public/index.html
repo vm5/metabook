@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="%PUBLIC_URL%/metabooklogo.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta
+      name="description"
+      content="LuciferFB - Social Media Platform"
+    />
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Metabook</title>
+    <style>
+      /* Protection for external resources */
+      img[src], link[href], script[src], source[src] {
+        pointer-events: none;
+        -webkit-touch-callout: none;
+        -webkit-user-select: none;
+        -khtml-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide actual source in inspector */
+      img[src], link[href], script[src], source[src] {
+        font-size: 0;
+        -webkit-mask-image: -webkit-linear-gradient(transparent, #000);
+        mask-image: linear-gradient(transparent, #000);
+      }
+
+      /* Additional protection for external resources */
+      img[src]::before, link[href]::before, script[src]::before, source[src]::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: inherit;
+        pointer-events: none;
+      }
+
+      /* Protect the entire document */
+      html {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      /* Hide source URLs in inspector */
+      [src], [href] {
+        color: transparent;
+        text-shadow: none;
+        background-color: transparent;
+        -webkit-text-fill-color: currentColor;
+      }
+
+      /* Additional protection for Google Analytics */
+      script {
+        display: none !important;
+        visibility: hidden !important;
+      }
+    </style>
+    <script>
+      // Load fonts dynamically
+      (function() {
+        var f = atob('aHR0cHM6Ly9mb250cy5nb29nbGVhcGlzLmNvbS9jc3MyP2ZhbWlseT1QbGF5ZmFpcitEaXNwbGF5OndnaHRANDAwOzUwMDs2MDA7NzAwJmZhbWlseT1Nb250c2VycmF0OndnaHRAMzAwOzQwMDs1MDA7NjAwOzcwMCZkaXNwbGF5PXN3YXA=');
+        var l = document.createElement('link');
+        l.rel = 'stylesheet';
+        l.href = f;
+        document.head.appendChild(l);
+      })();
+    </script>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+    <div id="portal-root"></div>
+    <script>
+      (function() {
+        var _0xf8d2=['\x77\x69\x6E\x64\x6F\x77','\x64\x61\x74\x61\x4C\x61\x79\x65\x72','\x70\x75\x73\x68','\x6A\x73','\x47\x2D\x48\x57\x57\x35\x44\x4D\x4E\x58\x50\x44','\x63\x6F\x6E\x66\x69\x67'];
+        var _0x4e8b=[_0xf8d2[0],_0xf8d2[1],_0xf8d2[2],_0xf8d2[3],_0xf8d2[4],_0xf8d2[5]];
+        
+        // Decode analytics URL
+        var p1 = atob('aHR0cHM6Ly93d3cuZ29vZ2xldGFnbWFuYWdlci5jb20vZ3RhZy9qcz9pZD1HLUhXVzVETU5YUEQ=');
+        
+        // Create and load script
+        var s = document.createElement('script');
+        s.type = 'text/javascript';
+        s.async = true;
+        s.src = p1;
+        
+        // Initialize analytics
+        window[_0x4e8b[1]] = window[_0x4e8b[1]] || [];
+        function gtag(){window[_0x4e8b[1]][_0x4e8b[2]](arguments);}
+        gtag(_0x4e8b[3], new Date());
+        gtag(_0x4e8b[5], _0x4e8b[4]);
+        
+        // Append script
+        var f = document.getElementsByTagName('script')[0];
+        f.parentNode.insertBefore(s, f);
+      })();
+    </script>
+  </body>
+</html>

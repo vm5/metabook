@@ -1,0 +1,371 @@
+/* editprofile.css */
+:root {
+  --primary: #9747FF;
+  --primary-dark: #7C3AFF;
+  --success: #00C853;
+  --dark-bg: #121212;
+  --card-bg: #1E1E1E;
+  --text: #FFFFFF;
+  --text-secondary: #B0B0B0;
+  --border: #333333;
+  --shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+}
+
+.edit-profile-container {
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.navigation-bar {
+  margin-bottom: 2rem;
+}
+
+.nav-button {
+  background: none;
+  border: none;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.nav-button:hover {
+  background: rgba(151, 71, 255, 0.1);
+}
+
+.edit-form {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--card-bg);
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid rgba(151, 71, 255, 0.1);
+}
+
+.form-section {
+  margin-bottom: 2rem;
+  padding: 1.5rem;
+  background: rgba(151, 71, 255, 0.05);
+  border-radius: 15px;
+  border: 1px solid rgba(151, 71, 255, 0.1);
+}
+
+h1 {
+  color: var(--text);
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+h2 {
+  color: var(--primary);
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-input,
+.form-select,
+.form-textarea {
+  background: var(--dark-bg);
+  border: 1px solid var(--border);
+  color: var(--text);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  width: 100%;
+  transition: all 0.3s ease;
+}
+
+.form-input:focus,
+.form-select:focus,
+.form-textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(151, 71, 255, 0.2);
+  outline: none;
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.full-width {
+  grid-column: 1 / -1;
+}
+
+.photo-upload {
+  margin-bottom: 1rem;
+}
+
+.upload-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.upload-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(151, 71, 255, 0.3);
+}
+
+.photos-preview {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.photo-preview-card {
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  aspect-ratio: 1;
+}
+
+.photo-preview-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.remove-photo {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-photo:hover {
+  background: rgba(255, 0, 0, 0.8);
+}
+
+.submit-button {
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  color: white;
+  border: none;
+  padding: 1rem 2rem;
+  border-radius: 8px;
+  font-size: 1.1rem;
+  cursor: pointer;
+  width: 100%;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.submit-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(151, 71, 255, 0.3);
+}
+
+.submit-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+/* Saving Animation */
+.saving .dots {
+  animation: dots 1.5s infinite;
+}
+
+.success-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.check {
+  animation: scale 0.5s ease;
+}
+
+@keyframes dots {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+@keyframes scale {
+  0% { transform: scale(0); }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .edit-profile-container {
+    padding: 1rem;
+  }
+
+  .edit-form {
+    padding: 1.5rem;
+  }
+
+  .form-group {
+    grid-template-columns: 1fr;
+  }
+
+  .photos-preview {
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  }
+}
+/* Add to your existing editprofile.css */
+
+.photos-section {
+  margin-bottom: 2rem;
+}
+
+.photo-upload-container {
+  margin-bottom: 1rem;
+}
+
+.photo-upload-input {
+  display: none;
+}
+
+.photo-upload-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  background: var(--gradient);
+  color: white;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.photo-upload-label:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(151, 71, 255, 0.3);
+}
+
+.photo-preview-grid,
+.existing-photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.photo-preview-item {
+  position: relative;
+  aspect-ratio: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.photo-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.photo-preview-item:hover img {
+  transform: scale(1.05);
+}
+
+.remove-photo-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+}
+
+.remove-photo-button:hover {
+  background: var(--error);
+  transform: scale(1.1);
+}
+
+.location-input-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.gps-button {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.75rem 1rem;
+  background: var(--gradient);
+  border: none;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.gps-button:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 15px rgba(151, 71, 255, 0.3);
+}
+
+.gps-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.loading-spinner {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.loading-spinner:after {
+  content: '';
+  width: 16px;
+  height: 16px;
+  border: 2px solid white;
+  border-top-color: transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
